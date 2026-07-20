@@ -2,7 +2,7 @@
   publish = "."
   functions = "netlify/functions"
   SECRETS_SCAN_OMIT_PATHS = ["assets/js/auth.js"]
-  SECRETS_SCAN_OMIT_KEYS = ["SUPABASE_URL", "SUPABASE_ANON_KEY"]
+  SECRETS_SCAN_OMIT_KEYS = ["SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_KEY"]
 
 [build.environment]
   NODE_VERSION = "18"
