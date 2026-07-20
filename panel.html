@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrativo · REDMIA</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <style>
+    .panel-container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+    .table-container { overflow-x: auto; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--c-border); border-radius: 8px; }
+    th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--c-border); }
+    th { background: #f8f9fa; font-weight: 600; color: var(--c-text); }
+    .status-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 99px; font-size: 0.8rem; font-weight: 500; }
+    .status-pendiente { background: #fff3cd; color: #856404; }
+    .status-aprobada { background: #d4edda; color: #155724; }
+    .status-rechazada { background: #f8d7da; color: #721c24; }
+    .btn--sm { padding: 0.35rem 0.75rem; font-size: 0.8rem; }
+    .text-muted { color: var(--c-muted); }
+    
+    #login-section { max-width: 400px; margin: 4rem auto; background: #fff; padding: 2rem; border-radius: 8px; border: 1px solid var(--c-border); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html" class="brand">
+          <img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">
+          <span class="brand__name">RED<span>MIA</span> | Panel</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="panel-container">
+    
+    <!-- Login Section -->
+    <div id="login-section">
+      <h2 style="margin-bottom: 1.5rem; text-align: center;">Acceso Mesa Directiva</h2>
+      <form id="login-form" class="form">
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" required>
+        </div>
+        <div id="login-error" class="hint" style="color: red; margin-bottom: 1rem;"></div>
+        <button type="submit" class="btn btn--accent btn--block">Iniciar sesión</button>
+      </form>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Solicitudes de Membresía</h2>
+        <button id="logout-btn" class="btn btn--outline">Cerrar sesión</button>
+      </div>
+
+      <div class="table-container">
+        <table>
+<thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Institución</th>
+              <th>Categoría</th>
+              <th>Eje</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="solicitudes-tbody">
+            <tr>
+              <td colspan="8" style="text-align:center; padding: 2rem;">Cargando solicitudes...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="assets/js/panel.js"></script>
+</body>
+</html>
