@@ -1,0 +1,9 @@
+{
+  "name": "redmia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "REDMIA website and Netlify functions",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

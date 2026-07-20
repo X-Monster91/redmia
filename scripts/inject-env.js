@@ -2,8 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 const config = {
-  SUPABASE_URL: process.env.SUPABASE_URL || 'https://yqzqorlqjwfbppntaefh.supabase.co',
-  SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlxenFvcmxxandmYnBwbnRhZWZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyMzQxOTUsImV4cCI6MjA5OTgxMDE5NX0.2bZiLhuuL0yCcgBkTCT1mwFU0IIqTXtmRQikeuLVLww',
   PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID || ''
 };
 

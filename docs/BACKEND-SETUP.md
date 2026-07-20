@@ -135,8 +135,8 @@ DELETE FROM admin_users WHERE email = 'diana.ramirez@universidad.mx';
 | Variable | Valor |
 |----------|-------|
 | `SUPABASE_URL` | `https://xxxxx.supabase.co` |
-| `SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIs...` |
-| `SUPABASE_SERVICE_KEY` | `eyJhbGciOiJIUzI1NiIs...` (la service_role key) |
+| `SUPABASE_ANON_KEY` | La clave pública obtenida del dashboard |
+| `SUPABASE_SERVICE_KEY` | La clave de servicio obtenida del dashboard |
 
 ### Desplegar
 
@@ -148,13 +148,7 @@ DELETE FROM admin_users WHERE email = 'diana.ramirez@universidad.mx';
 
 ## Paso 5: Configurar el Frontend
 
-1. Abre `assets/js/auth.js`
-2. Reemplaza these valores:
-
-```javascript
-const SUPABASE_URL = 'https://TU-PROYECTO.supabase.co';
-const SUPABASE_ANON_KEY = 'TU-ANON-KEY';
-```
+El frontend inicia sesión mediante `/.netlify/functions/login`. No agregues claves de Supabase a archivos JavaScript, HTML, documentación ni otros archivos del repositorio; las funciones las leen exclusivamente desde las variables de entorno de Netlify.
 
 ## Paso 6: Probar
 
