@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión — REDMIA</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+        <span class="header__logo-text">REDMIA</span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="index.html" class="header__nav-link">Inicio</a>
+        <a href="quienes-somos.html" class="header__nav-link">Quiénes somos</a>
+        <a href="membresias.html" class="header__nav-link">Membresías</a>
+        <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
+        <a href="eventos.html" class="header__nav-link">Eventos</a>
+        <a href="contacto.html" class="header__nav-link">Contacto</a>
+      </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
+        <a href="formulario.html" class="btn btn--accent btn--sm">Únete a la red</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg class="header__menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Login Form -->
+  <section class="section">
+    <div class="container" style="max-width: 480px;">
+      <div class="card">
+        <div class="card__body" style="padding: var(--space-8);">
+          <h2 style="text-align: center; margin-bottom: var(--space-2);">Iniciar Sesión</h2>
+          <p class="text-muted mb-8" style="text-align: center;">Accede al panel de administración</p>
+          
+          <div id="loginError" class="alert alert--error" style="display: none;">
+            Credenciales incorrectas. Intenta de nuevo.
+          </div>
+
+          <form id="loginForm">
+            <div class="form-group">
+              <label class="form-label" for="email">Correo electrónico *</label>
+              <input type="email" id="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="password">Contraseña *</label>
+              <input type="password" id="password" class="form-input" required>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; margin-top: var(--space-4);">
+              Iniciar Sesión
+            </button>
+          </form>
+
+          <div class="mt-8 text-center">
+            <p class="text-sm text-muted">
+              ¿Eres miembro? Solicita acceso en <a href="contacto.html" style="color: var(--color-primary);">Contacto</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2024 REDMIA. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="aviso-privacidad.html" class="footer__legal-link">Aviso de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

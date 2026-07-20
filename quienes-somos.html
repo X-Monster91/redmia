@@ -3,247 +3,267 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiénes somos · REDMIA</title>
-  <meta name="description" content="Conoce a REDMIA: nuestra misión, visión, origen en Torreón, Coahuila, modelo de red colaborativa y la ruta institucional hacia la Asociación Civil y un centro de formación.">
-  <link rel="canonical" href="https://redmia.org/quienes-somos.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Quiénes somos · REDMIA">
-  <meta property="og:description" content="Red académica multidisciplinaria dedicada a la investigación, la docencia y el uso responsable de la IA generativa.">
+  <title>Quiénes somos — REDMIA</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav" aria-label="Navegación principal">
-        <a href="index.html" class="brand" aria-label="REDMIA, inicio">
-          <img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">
-          <span class="brand__name">RED<span>MIA</span></span>
-        </a>
-        <ul class="nav__menu" role="menubar">
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">La Red
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="quienes-somos.html" class="dropdown__link" role="menuitem">Quiénes somos</a></li>
-              <li role="none"><a href="mesa-directiva.html" class="dropdown__link" role="menuitem">Mesa directiva</a></li>
-              <li role="none"><a href="coordinaciones.html" class="dropdown__link" role="menuitem">Coordinaciones</a></li>
-              <li role="none"><a href="estatutos.html" class="dropdown__link" role="menuitem">Estatutos</a></li>
-              <li role="none"><a href="aviso-privacidad.html" class="dropdown__link" role="menuitem">Aviso de privacidad</a></li>
-            </ul>
-          </li>
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">Investigación
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="proyectos.html" class="dropdown__link" role="menuitem">Proyectos</a></li>
-              <li role="none"><a href="publicaciones.html" class="dropdown__link" role="menuitem">Publicaciones</a></li>
-            </ul>
-          </li>
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">Comunidad
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="membresias.html" class="dropdown__link" role="menuitem">Membresías</a></li>
-              <li role="none"><a href="noticias.html" class="dropdown__link" role="menuitem">Noticias</a></li>
-              <li role="none"><a href="eventos.html" class="dropdown__link" role="menuitem">Eventos</a></li>
-              <li role="none"><a href="avisos.html" class="dropdown__link" role="menuitem">Avisos</a></li>
-            </ul>
-          </li>
-        </ul>
-        <a href="solicitar-ingreso.html" class="btn btn--accent nav__cta">Únete a la red</a>
-        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+        <span class="header__logo-text">REDMIA</span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="index.html" class="header__nav-link">Inicio</a>
+        <a href="quienes-somos.html" class="header__nav-link active">Quiénes somos</a>
+        <a href="membresias.html" class="header__nav-link">Membresías</a>
+        <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
+        <a href="eventos.html" class="header__nav-link">Eventos</a>
+        <a href="contacto.html" class="header__nav-link">Contacto</a>
       </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
+        <a href="formulario.html" class="btn btn--accent btn--sm">Únete a la red</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg class="header__menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <div class="nav-overlay" aria-hidden="true"></div>
-  <aside class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">
-    <div class="mobile-nav__head">
-      <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="30" height="30">RED<span style="color:var(--c-accent)">MIA</span></span>
-      <button class="mobile-nav__close" aria-label="Cerrar menú">&times;</button>
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Quiénes somos</h1>
+      <p class="page-header__subtitle">Conoce el origen, la misión y el modelo institucional de REDMIA</p>
     </div>
-    <ul class="mobile-nav__menu">
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">La Red</p>
-        <a href="quienes-somos.html" class="mobile-nav__link">Quiénes somos</a>
-        <a href="mesa-directiva.html" class="mobile-nav__link">Mesa directiva</a>
-        <a href="coordinaciones.html" class="mobile-nav__link">Coordinaciones</a>
-        <a href="estatutos.html" class="mobile-nav__link">Estatutos</a>
-        <a href="aviso-privacidad.html" class="mobile-nav__link">Aviso de privacidad</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Investigación</p>
-        <a href="proyectos.html" class="mobile-nav__link">Proyectos</a>
-        <a href="publicaciones.html" class="mobile-nav__link">Publicaciones</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Comunidad</p>
-        <a href="membresias.html" class="mobile-nav__link">Membresías</a>
-        <a href="noticias.html" class="mobile-nav__link">Noticias</a>
-        <a href="eventos.html" class="mobile-nav__link">Eventos</a>
-        <a href="avisos.html" class="mobile-nav__link">Avisos</a>
-      </li>
-    </ul>
-    <div class="mobile-nav__foot">
-      <a href="solicitar-ingreso.html" class="btn btn--accent btn--block">Únete a la red</a>
-    </div>
-  </aside>
+  </div>
 
-  <main>
-
-    <!-- ===== Page hero ===== -->
-    <section class="page-hero">
-      <div class="container">
-        <div class="page-hero__inner">
-          <nav class="breadcrumb" aria-label="Migas de pan">
-            <a href="index.html">Inicio</a><span class="breadcrumb__sep">/</span><span>Quiénes somos</span>
-          </nav>
-          <span class="eyebrow">Sobre la red</span>
-          <h1>Una red al servicio del conocimiento con IA</h1>
-          <p class="page-hero__lead">Somos una red académica multidisciplinaria dedicada a la investigación, la docencia y el uso responsable de la inteligencia artificial generativa.</p>
+  <!-- Misión -->
+  <section class="section">
+    <div class="container">
+      <div class="about__grid">
+        <div>
+          <h2>Misión</h2>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">
+            Fomentar la investigación multidisciplinaria y la formación en el uso de la inteligencia artificial generativa, mediante la colaboración entre instituciones e investigadores de distintas áreas del conocimiento.
+          </p>
+        </div>
+        <div>
+          <h2>Visión</h2>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">
+            Consolidarnos como la red académica de referencia en México en el estudio y la aplicación responsable de la inteligencia artificial generativa.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== Misión / Visión ===== -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Nuestra razón de ser</span>
-          <h2 class="section-title">Misión y visión</h2>
+  <!-- Origen -->
+  <section class="section" style="background-color: #fff;">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image">
+          <img src="assets/img/68df68ed3c9caf28bb611285.png" alt="REDMIA Investigación">
         </div>
-        <div class="mv-grid">
-          <div class="mv-card">
-            <span class="mv-card__label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-              Misión
-            </span>
-            <p>Fomentar la investigación multidisciplinaria y la formación en el uso de la inteligencia artificial generativa, mediante la colaboración entre instituciones e investigadores de distintas áreas del conocimiento.</p>
-          </div>
-          <div class="mv-card">
-            <span class="mv-card__label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-              Visión
-            </span>
-            <p>Consolidarnos como la red académica de referencia en México en el estudio y la aplicación responsable de la inteligencia artificial generativa.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Origen y modelo ===== -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items:center;">
-          <div>
-            <span class="eyebrow">Origen</span>
-            <h2 class="section-title">Fundada en Torreón, Coahuila</h2>
-            <p class="section-lead">REDMIA nace en Torreón, Coahuila, como un espacio de encuentro para investigadores y docentes que comparten una misma inquietud: entender y aprovechar, de forma rigurosa y ética, el impacto de la inteligencia artificial generativa en la generación de conocimiento y en la enseñanza.</p>
-            <div class="feature-list mt-lg">
-              <div class="feature">
-                <span class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-                <div>
-                  <h3 class="feature__title">Raíz regional</h3>
-                  <p class="feature__text">Asentada en La Laguna, con vocación de impacto nacional.</p>
-                </div>
-              </div>
-              <div class="feature">
-                <span class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></span>
-                <div>
-                  <h3 class="feature__title">Enfoque interdisciplinario</h3>
-                  <p class="feature__text">Abierta a todas las disciplinas académicas, no sólo a ciencias de la computación.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hero__visual">
-            <img src="assets/img/logo-mark.svg" alt="" class="hero__visual-mark">
-            <div>
-              <p class="hero__visual-quote">"Un modelo ligero y colaborativo, inspirado en redes como COMIE y RIBIE."</p>
-              <p class="hero__visual-cite">Modelo de REDMIA</p>
+        <div style="position: relative; overflow: hidden; padding: var(--space-8); border-radius: var(--radius-lg); width: 544px; height: 823.22px; flex-shrink: 0; border: 2px solid #000;">
+          <img src="assets/img/f4204ec08a2891d74da76de4b0257696.gif" alt="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.85); z-index: 1;"></div>
+          <div style="position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; height: 100%; padding: var(--space-12) var(--space-8);">
+            <span style="display: inline-block; font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--space-4);">Nuestra historia</span>
+            <h2 style="font-size: var(--text-3xl); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-6); line-height: 1.2;">Origen</h2>
+            <div style="width: 60px; height: 4px; background: var(--color-primary); margin-bottom: var(--space-6); border-radius: 2px;"></div>
+            <p style="font-size: var(--text-lg); line-height: 1.9; color: var(--color-text-light); font-weight: 400;">
+              REDMIA nace en Torreón, Coahuila, como un espacio de encuentro para investigadores y docentes que comparten una misma inquietud: entender y aprovechar, de forma rigurosa y ética, el impacto de la inteligencia artificial generativa en la generación de conocimiento y en la enseñanza.
+            </p>
+            <div style="margin-top: auto; padding-top: var(--space-6); border-top: 1px solid rgba(0,0,0,0.1);">
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); font-style: italic;">"Conectando mentes para un futuro inteligente"</p>
             </div>
           </div>
         </div>
-        <div class="grid" style="grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md); margin-top: var(--space-xl);">
-          <div class="notice notice--info">
-            <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            <p><strong>Modelo de red</strong>Somos una red ligera y colaborativa. Operamos bajo un modelo autofinanciable: las cuotas voluntarias de nuestros socios financian directamente los proyectos de investigación y la producción científica que generan nuestros ejes temáticos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modelo -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-8">Nuestro modelo</h2>
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="font-size: 3rem; margin-bottom: var(--space-4);">🔗</div>
+            <h4>Red ligera y colaborativa</h4>
+            <p>Operamos como una red abierta que conecta investigadores de distintas instituciones y disciplinas.</p>
           </div>
-          <div class="notice notice--warning">
-            <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            <p><strong>Ruta institucional</strong>Trabajamos conforme a una ruta de crecimiento para consolidarnos como Red Internacional.</p>
+        </div>
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="font-size: 3rem; margin-bottom: var(--space-4);">💰</div>
+            <h4>Modelo autofinanciable</h4>
+            <p>Las cuotas voluntarias de nuestros socios financian directamente los proyectos de investigación y la producción científica.</p>
           </div>
-          <div class="notice">
-            <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            <p><strong>Valores institucionales</strong>Colaboración, rigor académico, apertura interdisciplinaria, transparencia y uso ético de la inteligencia artificial guían todo lo que hacemos.</p>
+        </div>
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="font-size: 3rem; margin-bottom: var(--space-4);">🌍</div>
+            <h4>Ruta institucional</h4>
+            <p>Trabajamos conforme a una ruta de crecimiento para consolidarnos como Red Internacional.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="cta-band">
-          <h2>Construye el futuro de la IA con nosotros</h2>
-          <p>Forma parte de una red que combina rigor académico, colaboración y uso responsable de la tecnología.</p>
-          <div class="btn-group">
-            <a href="solicitar-ingreso.html" class="btn btn--accent btn--lg">Únete a la red</a>
-            <a href="membresias.html" class="btn btn--ghost btn--lg">Ver membresías</a>
+  <!-- Mesa Directiva Preview -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="text-center mb-8">Nuestra Mesa Directiva</h2>
+      <p class="text-center text-muted mb-8" style="max-width: 700px; margin: 0 auto var(--space-8);">
+        Órgano de gobierno de REDMIA — Integrantes designados por invitación directa de la Coordinación General
+      </p>
+      <div class="grid grid--3" style="gap: var(--space-6);">
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h4>Dra. Elena Tzetzángary</h4>
+            <p class="text-sm text-muted">Dirección General</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h4>Dra. Luz María Ramírez</h4>
+            <p class="text-sm text-muted">Secretaría General</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body text-center">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #10B981, #34D399); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h4>Mtra. Lilia Parada Morado</h4>
+            <p class="text-sm text-muted">Vocal de Investigación</p>
           </div>
         </div>
       </div>
-    </section>
+      <div class="text-center mt-8">
+        <a href="mesa-directiva.html" class="btn btn--primary">Ver todos los miembros</a>
+      </div>
+    </div>
+  </section>
 
-  </main>
+  <!-- Valores -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-8">Nuestros valores</h2>
+      <div class="grid" style="grid-template-columns: repeat(5, 1fr); gap: var(--space-6);">
+        <div class="text-center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3);">🤝</div>
+          <h4 style="font-size: var(--text-base);">Colaboración</h4>
+        </div>
+        <div class="text-center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3);">🎯</div>
+          <h4 style="font-size: var(--text-base);">Rigor académico</h4>
+        </div>
+        <div class="text-center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3);">🌐</div>
+          <h4 style="font-size: var(--text-base);">Apertura interdisciplinaria</h4>
+        </div>
+        <div class="text-center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3);">🔍</div>
+          <h4 style="font-size: var(--text-base);">Transparencia</h4>
+        </div>
+        <div class="text-center">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-3);">⚖️</div>
+          <h4 style="font-size: var(--text-base);">Uso ético de la IA</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="site-footer">
+  <!-- CTA -->
+  <section class="section" style="position: relative; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <source src="assets/img/black-grid-background-video-motion-background-with-hd-auto-.mp4" type="video/mp4">
+    </video>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1;"></div>
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <h2 style="color: white;">¿Quieres formar parte?</h2>
+      <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
+        Únete a nuestra comunidad de investigadores y docentes comprometidos con el uso responsable de la IA generativa.
+      </p>
+      <a href="formulario.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">RED<span style="color:var(--c-accent)">MIA</span></span>
-          <p class="footer__about">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Academia, investigación y uso responsable de la IA generativa.</p>
+          <a href="index.html" class="footer__logo">
+            <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+            <span class="footer__logo-text">REDMIA</span>
+          </a>
+          <p class="footer__description">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Torreón, Coahuila, México.</p>
         </div>
-        <div class="footer__col">
-          <h4>La Red</h4>
-          <ul>
-            <li><a href="quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="mesa-directiva.html">Mesa directiva</a></li>
-            <li><a href="coordinaciones.html">Coordinaciones</a></li>
-            <li><a href="estatutos.html">Estatutos</a></li>
+        <div>
+          <h4 class="footer__heading">Red</h4>
+          <ul class="footer__links">
+            <li><a href="quienes-somos.html" class="footer__link">Quiénes somos</a></li>
+            <li><a href="estatutos.html" class="footer__link">Estatutos</a></li>
+            <li><a href="mesa-directiva.html" class="footer__link">Mesa directiva</a></li>
+            <li><a href="coordinaciones.html" class="footer__link">Coordinaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Investigación</h4>
-          <ul>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="publicaciones.html">Publicaciones</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="noticias.html">Noticias</a></li>
+        <div>
+          <h4 class="footer__heading">Participa</h4>
+          <ul class="footer__links">
+            <li><a href="membresias.html" class="footer__link">Membresías</a></li>
+            <li><a href="formulario.html" class="footer__link">Solicitar ingreso</a></li>
+            <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+            <li><a href="publicaciones.html" class="footer__link">Publicaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Contacto</h4>
-          <div class="footer__contact">
-            <span>📍 Torreón, Coahuila — México</span>
-            <a href="mailto:contacto@redmia.org">✉ contacto@redmia.org</a>
-            <a href="solicitar-ingreso.html" class="btn btn--accent btn--block mt-sm">Únete a la red</a>
-          </div>
+        <div>
+          <h4 class="footer__heading">Contacto</h4>
+          <ul class="footer__links">
+            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+            <li><a href="noticias.html" class="footer__link">Noticias</a></li>
+            <li><a href="eventos.html" class="footer__link">Eventos</a></li>
+            <li><a href="avisos.html" class="footer__link">Avisos</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© <span data-year>2026</span> REDMIA. Todos los derechos reservados.</p>
-        <p><a href="aviso-privacidad.html">Aviso de privacidad</a> · <a href="estatutos.html">Estatutos</a></p>
+        <p class="footer__copyright">&copy; 2024 REDMIA. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="aviso-privacidad.html" class="footer__legal-link">Aviso de Privacidad</a>
+        </div>
       </div>
     </div>
   </footer>

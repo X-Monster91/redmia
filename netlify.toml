@@ -1,35 +1,20 @@
-# ============================================================
-# REDMIA — Configuración de Netlify
-# ============================================================
-
 [build]
   publish = "."
-  # No hay proceso de build: es un sitio estático puro.
+  functions = "netlify/functions"
 
-# Cabeceras de seguridad
+[build.environment]
+  NODE_VERSION = "18"
+
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
+    X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    X-XSS-Protection = "1; mode=block"
 
-# Cacheo de assets estáticos (1 año, inmutable)
 [[headers]]
-  for = "/assets/*"
+  for = "/netlify/functions/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Página 404 personalizada
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
-
-# Nota sobre formularios:
-# Netlify detecta automáticamente los formularios con el atributo
-# data-netlify="true" al momento del despliegue. No se requiere
-# configuración adicional. Los envíos se ven en:
-# Netlify → Site → Forms
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"

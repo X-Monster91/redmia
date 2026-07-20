@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coordinaciones — REDMIA</title>
+  <title>Contacto — REDMIA</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
         <a href="membresias.html" class="header__nav-link">Membresías</a>
         <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
         <a href="eventos.html" class="header__nav-link">Eventos</a>
-        <a href="contacto.html" class="header__nav-link">Contacto</a>
+        <a href="contacto.html" class="header__nav-link active">Contacto</a>
       </nav>
       <div class="header__actions">
         <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
@@ -44,74 +44,81 @@
   <!-- Page Header -->
   <div class="page-header">
     <div class="container">
-      <h1 class="page-header__title">Coordinaciones</h1>
-      <p class="page-header__subtitle">Cuatro ejes temáticos de trabajo, cada uno a cargo de una persona designada por invitación directa</p>
+      <h1 class="page-header__title">Contacto</h1>
+      <p class="page-header__subtitle">¿Tienes dudas o quieres participar? Escríbenos</p>
     </div>
   </div>
 
-  <!-- Ejes -->
+  <!-- Contact -->
   <section class="section">
     <div class="container">
-      <div class="alert alert--info mb-8">
-        <strong>Nota:</strong> Estos cargos son honorarios y se asignan por invitación directa de la Coordinación General.
+      <div class="grid grid--2">
+        <!-- Contact Form -->
+        <div>
+          <div class="card">
+            <div class="card__body" style="padding: var(--space-8);">
+              <h3>Envíanos un mensaje</h3>
+              <form id="contactForm" class="mt-6">
+                <div class="form-group">
+                  <label class="form-label" for="nombre">Nombre *</label>
+                  <input type="text" id="nombre" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Correo electrónico *</label>
+                  <input type="email" id="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="asunto">Asunto *</label>
+                  <select id="asunto" class="form-input form-select" required>
+                    <option value="">Selecciona</option>
+                    <option value="solicitud">Solicitud de membresía</option>
+                    <option value="dudas">Dudas sobre la red</option>
+                    <option value="colaboracion">Propuesta de colaboración</option>
+                    <option value="otros">Otros</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="mensaje">Mensaje *</label>
+                  <textarea id="mensaje" class="form-input form-textarea" required></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+                  Enviar mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="card mb-6">
+            <div class="card__body">
+              <h4>Red de Investigaciones Multidisciplinarias con Inteligencia Artificial</h4>
+              <p class="text-muted mt-2">Asociación Civil sin fines de lucro (en proceso de formalización)</p>
+            </div>
+          </div>
+
+          <div class="card mb-6">
+            <div class="card__body">
+              <h4>Miembros fundadores</h4>
+              <ul style="padding-left: var(--space-6); margin-top: var(--space-4);">
+                <li>Dra. Diana Laura Ramírez Sánchez</li>
+                <li>Dr. Francisco Martínez Cruz</li>
+                <li>Dr. Carlos González López</li>
+                <li>Mtra. Ana Hernández Torres</li>
+                <li>Lic. Roberto Sánchez Díaz</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__body">
+              <h4>Correo electrónico</h4>
+              <p class="mt-2"><a href="mailto:redmidiagenerativa@gmail.com" style="color: var(--color-primary);">redmidiagenerativa@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="grid grid--2" style="gap: var(--space-8);">
-        <!-- Eje 1 -->
-        <div class="coord-card">
-          <div class="coord-card__number">01</div>
-          <h3>Metodologías de investigación con IA generativa</h3>
-          <p>Explora y sistematiza el uso de la inteligencia artificial generativa como herramienta metodológica en distintas disciplinas de investigación.</p>
-          <div class="mt-4">
-            <span class="text-sm text-muted">Coordinador(a):</span>
-            <p class="font-medium">[Nombre por confirmar]</p>
-          </div>
-        </div>
-
-        <!-- Eje 2 -->
-        <div class="coord-card">
-          <div class="coord-card__number">02</div>
-          <h3>IA generativa aplicada a la docencia</h3>
-          <p>Desarrolla estrategias y recursos para incorporar la inteligencia artificial generativa en la práctica docente, con un enfoque pedagógico responsable.</p>
-          <div class="mt-4">
-            <span class="text-sm text-muted">Coordinador(a):</span>
-            <p class="font-medium">[Nombre por confirmar]</p>
-          </div>
-        </div>
-
-        <!-- Eje 3 -->
-        <div class="coord-card">
-          <div class="coord-card__number">03</div>
-          <h3>Ética, rigor y buenas prácticas</h3>
-          <p>Reflexiona sobre los límites, riesgos y responsabilidades del uso de la inteligencia artificial generativa en el ámbito académico, y promueve estándares de rigor y buenas prácticas.</p>
-          <div class="mt-4">
-            <span class="text-sm text-muted">Coordinador(a):</span>
-            <p class="font-medium">[Nombre por confirmar]</p>
-          </div>
-        </div>
-
-        <!-- Eje 4 -->
-        <div class="coord-card">
-          <div class="coord-card__number">04</div>
-          <h3>Herramientas y alfabetización digital</h3>
-          <p>Acerca a la comunidad académica las herramientas de inteligencia artificial generativa disponibles y promueve las competencias digitales necesarias para usarlas con criterio.</p>
-          <div class="mt-4">
-            <span class="text-sm text-muted">Coordinador(a):</span>
-            <p class="font-medium">[Nombre por confirmar]</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);">
-    <div class="container text-center">
-      <h2 style="color: white;">¿Te interesa algún eje temático?</h2>
-      <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
-        Al solicitar tu ingreso a REDMIA, puedes indicar tu eje temático de interés.
-      </p>
-      <a href="formulario.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
     </div>
   </section>
 
@@ -124,7 +131,10 @@
             <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
             <span class="footer__logo-text">REDMIA</span>
           </a>
-          <p class="footer__description">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Torreón, Coahuila, México.</p>
+          <p class="footer__description">
+            Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. 
+            Torreón, Coahuila, México.
+          </p>
         </div>
         <div>
           <h4 class="footer__heading">Red</h4>
@@ -164,5 +174,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
 </body>
 </html>

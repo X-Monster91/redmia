@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar ingreso — REDMIA</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+        <span class="header__logo-text">REDMIA</span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="index.html" class="header__nav-link">Inicio</a>
+        <a href="quienes-somos.html" class="header__nav-link">Quiénes somos</a>
+        <a href="membresias.html" class="header__nav-link">Membresías</a>
+        <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
+        <a href="eventos.html" class="header__nav-link">Eventos</a>
+        <a href="contacto.html" class="header__nav-link">Contacto</a>
+      </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
+        <a href="formulario.html" class="btn btn--accent btn--sm">Únete a la red</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg class="header__menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Solicitar ingreso</h1>
+      <p class="page-header__subtitle">Completa el formulario para unirte a nuestra red de investigadores</p>
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="alert alert--info mb-8">
+        <strong>Importante:</strong> Tu solicitud quedará en estado "Pendiente" y será revisada por la Mesa Directiva antes de que puedas convertirte en miembro activo.
+      </div>
+
+      <form id="membershipForm" class="card">
+        <div class="card__body" style="padding: var(--space-8);">
+          <!-- Datos personales -->
+          <h3 style="margin-bottom: var(--space-6);">Datos personales</h3>
+          
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre(s) *</label>
+              <input type="text" id="nombre" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="apellido">Apellido(s) *</label>
+              <input type="text" id="apellido" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label class="form-label" for="email">Correo electrónico *</label>
+              <input type="email" id="email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" class="form-input">
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Datos académicos -->
+          <h3 style="margin-bottom: var(--space-6);">Datos académicos</h3>
+
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label class="form-label" for="institucion">Institución de adscripción *</label>
+              <input type="text" id="institucion" class="form-input" placeholder="Universidad o institución" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cargo">Cargo *</label>
+              <input type="text" id="cargo" class="form-input" placeholder="Profesor, Investigador, etc." required>
+            </div>
+          </div>
+
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label class="form-label" for="grado">Grado académico máximo *</label>
+              <select id="grado" class="form-input form-select" required>
+                <option value="">Selecciona</option>
+                <option value="licenciatura">Licenciatura</option>
+                <option value="maestria">Maestría</option>
+                <option value="doctorado">Doctorado</option>
+                <option value="postdoc">Postdoctorado</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="especialidad">Área de especialidad o línea de investigación en IA *</label>
+              <input type="text" id="especialidad" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Membresía -->
+          <h3 style="margin-bottom: var(--space-6);">Solicitud de membresía</h3>
+
+          <div class="grid grid--2">
+            <div class="form-group">
+              <label class="form-label" for="categoria">Categoría de membresía solicitada *</label>
+              <select id="categoria" class="form-input form-select" required>
+                <option value="">Selecciona</option>
+                <option value="activo">Miembro activo ($950 MXN/año)</option>
+                <option value="estudiante">Estudiante / Adherente</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="eje">Eje temático de interés *</label>
+              <select id="eje" class="form-input form-select" required>
+                <option value="">Selecciona</option>
+                <option value="metodologias">Metodologías de investigación con IA generativa</option>
+                <option value="docencia">IA generativa aplicada a la docencia</option>
+                <option value="etica">Ética, rigor y buenas prácticas</option>
+                <option value="herramientas">Herramientas y alfabetización digital</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="motivos">Carta breve de motivos *</label>
+            <textarea id="motivos" class="form-input form-textarea" placeholder="¿Por qué deseas formar parte de REDMIA? ¿Qué esperas aportar y obtener de la red?" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cv">Currículum vitae (PDF, máx. 5 MB)</label>
+            <input type="file" id="cv" class="form-input" accept=".pdf">
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Comprobante de pago -->
+          <h3 style="margin-bottom: var(--space-4);">Comprobante de pago (opcional)</h3>
+          <p class="text-sm text-muted mb-6">La cuota de membresía es voluntaria. Si deseas adjuntar tu comprobante de pago, puedes hacerlo aquí.</p>
+
+          <div class="form-group">
+            <label class="form-label" for="comprobante">Comprobante de pago (PDF, JPG o PNG, máx. 5 MB)</label>
+            <input type="file" id="comprobante" class="form-input" accept=".pdf,.jpg,.jpeg,.png" multiple>
+            <p class="text-sm text-muted mt-2">Puedes adjuntar más de un archivo.</p>
+          </div>
+
+          <!-- Pago con PayPal -->
+          <div class="card mb-6" style="background-color: var(--color-background); border: 1px solid var(--color-border);">
+            <div class="card__body">
+              <h4 style="margin-bottom: var(--space-4);">Pago con PayPal</h4>
+              <p class="text-sm text-muted mb-4">Si deseas pagar tu cuota de membresía ahora, puedes hacerlo de forma segura con PayPal.</p>
+              <div id="paypal-button-container"></div>
+              <p class="text-xs text-muted mt-4 text-center">Membresía activa: $950 MXN / año</p>
+            </div>
+          </div>
+
+          <!-- Aviso de privacidad -->
+          <div class="form-group">
+            <label style="display: flex; align-items: flex-start; gap: var(--space-3); cursor: pointer;">
+              <input type="checkbox" id="privacidad" required style="margin-top: 4px;">
+              <span class="text-sm">
+                He leído y acepto el <a href="aviso-privacidad.html" target="_blank" style="color: var(--color-primary);">Aviso de Privacidad</a> de REDMIA. *
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+            Enviar solicitud
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+            <span class="footer__logo-text">REDMIA</span>
+          </a>
+          <p class="footer__description">
+            Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. 
+            Torreón, Coahuila, México.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Red</h4>
+          <ul class="footer__links">
+            <li><a href="quienes-somos.html" class="footer__link">Quiénes somos</a></li>
+            <li><a href="estatutos.html" class="footer__link">Estatutos</a></li>
+            <li><a href="mesa-directiva.html" class="footer__link">Mesa directiva</a></li>
+            <li><a href="coordinaciones.html" class="footer__link">Coordinaciones</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Participa</h4>
+          <ul class="footer__links">
+            <li><a href="membresias.html" class="footer__link">Membresías</a></li>
+            <li><a href="formulario.html" class="footer__link">Solicitar ingreso</a></li>
+            <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+            <li><a href="publicaciones.html" class="footer__link">Publicaciones</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contacto</h4>
+          <ul class="footer__links">
+            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+            <li><a href="noticias.html" class="footer__link">Noticias</a></li>
+            <li><a href="eventos.html" class="footer__link">Eventos</a></li>
+            <li><a href="avisos.html" class="footer__link">Avisos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2024 REDMIA. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="aviso-privacidad.html" class="footer__legal-link">Aviso de Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=MXN"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/formulario.js"></script>
+</body>
+</html>

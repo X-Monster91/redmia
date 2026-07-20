@@ -3,237 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Membresías · REDMIA</title>
-  <meta name="description" content="Categorías de membresía de REDMIA: socios fundadores, numerarios/activos, estudiantes/adherentes y honorarios. Requisitos, beneficios y proceso de ingreso.">
-  <link rel="canonical" href="https://redmia.org/membresias.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Membresías · REDMIA">
+  <title>Membresías — REDMIA</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav" aria-label="Navegación principal">
-        <a href="index.html" class="brand" aria-label="REDMIA, inicio">
-          <img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">
-          <span class="brand__name">RED<span>MIA</span></span>
-        </a>
-        <ul class="nav__menu" role="menubar">
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">La Red
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="quienes-somos.html" class="dropdown__link" role="menuitem">Quiénes somos</a></li>
-              <li role="none"><a href="mesa-directiva.html" class="dropdown__link" role="menuitem">Mesa directiva</a></li>
-              <li role="none"><a href="coordinaciones.html" class="dropdown__link" role="menuitem">Coordinaciones</a></li>
-              <li role="none"><a href="estatutos.html" class="dropdown__link" role="menuitem">Estatutos</a></li>
-              <li role="none"><a href="aviso-privacidad.html" class="dropdown__link" role="menuitem">Aviso de privacidad</a></li>
-            </ul>
-          </li>
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">Investigación
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="proyectos.html" class="dropdown__link" role="menuitem">Proyectos</a></li>
-              <li role="none"><a href="publicaciones.html" class="dropdown__link" role="menuitem">Publicaciones</a></li>
-            </ul>
-          </li>
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">Comunidad
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="membresias.html" class="dropdown__link" role="menuitem">Membresías</a></li>
-              <li role="none"><a href="noticias.html" class="dropdown__link" role="menuitem">Noticias</a></li>
-              <li role="none"><a href="eventos.html" class="dropdown__link" role="menuitem">Eventos</a></li>
-              <li role="none"><a href="avisos.html" class="dropdown__link" role="menuitem">Avisos</a></li>
-            </ul>
-          </li>
-        </ul>
-        <a href="solicitar-ingreso.html" class="btn btn--accent nav__cta">Únete a la red</a>
-        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+        <span class="header__logo-text">REDMIA</span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="index.html" class="header__nav-link">Inicio</a>
+        <a href="quienes-somos.html" class="header__nav-link">Quiénes somos</a>
+        <a href="membresias.html" class="header__nav-link active">Membresías</a>
+        <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
+        <a href="eventos.html" class="header__nav-link">Eventos</a>
+        <a href="contacto.html" class="header__nav-link">Contacto</a>
       </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
+        <a href="formulario.html" class="btn btn--accent btn--sm">Únete a la red</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg class="header__menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <div class="nav-overlay" aria-hidden="true"></div>
-  <aside class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">
-    <div class="mobile-nav__head">
-      <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="30" height="30">RED<span style="color:var(--c-accent)">MIA</span></span>
-      <button class="mobile-nav__close" aria-label="Cerrar menú">&times;</button>
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Membresías</h1>
+      <p class="page-header__subtitle">Formar parte de REDMIA es sumarse a una comunidad académica comprometida con la investigación y la enseñanza responsable de la IA generativa</p>
     </div>
-    <ul class="mobile-nav__menu">
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">La Red</p>
-        <a href="quienes-somos.html" class="mobile-nav__link">Quiénes somos</a>
-        <a href="mesa-directiva.html" class="mobile-nav__link">Mesa directiva</a>
-        <a href="coordinaciones.html" class="mobile-nav__link">Coordinaciones</a>
-        <a href="estatutos.html" class="mobile-nav__link">Estatutos</a>
-        <a href="aviso-privacidad.html" class="mobile-nav__link">Aviso de privacidad</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Investigación</p>
-        <a href="proyectos.html" class="mobile-nav__link">Proyectos</a>
-        <a href="publicaciones.html" class="mobile-nav__link">Publicaciones</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Comunidad</p>
-        <a href="membresias.html" class="mobile-nav__link">Membresías</a>
-        <a href="noticias.html" class="mobile-nav__link">Noticias</a>
-        <a href="eventos.html" class="mobile-nav__link">Eventos</a>
-        <a href="avisos.html" class="mobile-nav__link">Avisos</a>
-      </li>
-    </ul>
-    <div class="mobile-nav__foot">
-      <a href="solicitar-ingreso.html" class="btn btn--accent btn--block">Únete a la red</a>
+  </div>
+
+  <!-- Info -->
+  <section class="section">
+    <div class="container">
+      <div class="about__grid">
+        <div>
+          <h2>Modelo de membresía</h2>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">
+            La membresía tiene una <strong>cuota voluntaria anual de $950 MXN</strong>, exenta de IVA por tratarse de una asociación de carácter científico.
+          </p>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">
+            Nuestra meta es alcanzar <strong>200 socios para diciembre de 2026</strong>.
+          </p>
+          <p style="font-size: var(--text-lg); line-height: 1.8;">
+            Operamos bajo un <strong>modelo autofinanciable</strong>: los ingresos por cuotas se destinan directamente a financiar los proyectos de investigación y la producción científica que generan nuestros ejes temáticos. A medida del crecimiento de REDMIA se planean financiar estancias de investigación.
+          </p>
+        </div>
+        <div>
+          <img src="assets/img/80844351f186f32ee8fe7965de28d3f1.gif" alt="REDMIA Investigación" style="border-radius: var(--radius-xl); width: 100%;">
+        </div>
+      </div>
     </div>
-  </aside>
+  </section>
 
-  <main>
-
-    <section class="page-hero">
-      <div class="container">
-        <div class="page-hero__inner">
-          <nav class="breadcrumb" aria-label="Migas de pan">
-            <a href="index.html">Inicio</a><span class="breadcrumb__sep">/</span><span>Membresías</span>
-          </nav>
-          <span class="eyebrow">Forma parte de la red</span>
-          <h1>Categorías de membresía</h1>
-          <p class="page-hero__lead">Formar parte de REDMIA es sumarse a una comunidad académica comprometida con la investigación y la enseñanza responsable de la inteligencia artificial generativa.</p>
+  <!-- Categorías -->
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="text-center mb-8">Categorías de membresía</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--primary mb-4">Fundador</span>
+            <h4>Fundador</h4>
+            <p class="text-sm">Quienes participaron en la constitución inicial de la red. Acceso permanente sin cuota.</p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== Cuota y modelo ===== -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="notice">
-          <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-          <div>
-            <p><strong>Cuota anual y modelo autofinanciable</strong></p>
-            <p>La membresía tiene una cuota voluntaria anual de <strong>$950 MXN</strong>, exenta de IVA por tratarse de una asociación de carácter científico. Nuestra meta es alcanzar 200 socios para diciembre de 2026.</p>
-            <p style="margin-top:0.5rem">Operamos bajo un modelo autofinanciable: los ingresos por cuotas se destinan directamente a financiar los proyectos de investigación y la producción científica que generan nuestros ejes temáticos, a medida del crecimiento de la REDMIA se planean financiar estancias de investigación.</p>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--accent mb-4">Honorario</span>
+            <h4>Honorario</h4>
+            <p class="text-sm">Designación directa al ser nombrado coordinador, otorgada por la Mesa Directiva.</p>
+          </div>
+        </div>
+        <div class="card" style="border: 2px solid var(--color-accent);">
+          <div class="card__body">
+            <span class="badge badge--accent mb-4">Activo</span>
+            <h4>Miembro activo</h4>
+            <p class="text-sm">Investigadores y docentes en activo, con participación en los ejes temáticos. Cuota anual voluntaria de $950 MXN.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--success mb-4">Estudiante</span>
+            <h4>Estudiante / Adherente</h4>
+            <p class="text-sm">Estudiantes de posgrado interesados en el campo. Cuota anual voluntaria reducida.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===== Categorías ===== -->
-    <section class="section" style="padding-top:0;">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Cuatro perfiles</span>
-          <h2 class="section-title">Elige tu vía de participación</h2>
-        </div>
+  <!-- CTA -->
+  <section class="section" style="position: relative; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <source src="assets/img/black-grid-background-video-motion-background-with-hd-auto-.mp4" type="video/mp4">
+    </video>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1;"></div>
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <h2 style="color: white;">¿Listo para unirte?</h2>
+      <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
+        Completa el formulario de solicitud y adjunta tu comprobante de pago. La Mesa Directiva revisará tu solicitud.
+      </p>
+      <a href="formulario.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
+    </div>
+  </section>
 
-        <div class="membership-grid">
-          <!-- Fundador -->
-          <article class="membership-card">
-            <h3 class="membership-card__name">Fundador</h3>
-            <p class="membership-card__profile">Quienes participaron en la constitución inicial de la red.</p>
-          </article>
-
-          <!-- Honorario -->
-          <article class="membership-card">
-            <h3 class="membership-card__name">Honorario</h3>
-            <p class="membership-card__profile">Designación directa al ser nombrado coordinador, otorgada por la Mesa Directiva.</p>
-          </article>
-
-          <!-- Miembro activo (Docentes/Investigadores) -->
-          <article class="membership-card membership-card--featured">
-            <h3 class="membership-card__name">Miembro activo</h3>
-            <p class="membership-card__profile">Investigadores y docentes en activo, con participación en los ejes temáticos.</p>
-          </article>
-
-          <!-- Miembro activo (Estudiantes) -->
-          <article class="membership-card">
-            <h3 class="membership-card__name">Miembro activo (Estudiantes)</h3>
-            <p class="membership-card__profile">Estudiantes de posgrado interesados en el campo.</p>
-          </article>
-        </div>
-
-
-      </div>
-    </section>
-
-    <!-- ===== Proceso de ingreso ===== -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Solicitud de ingreso</span>
-          <h2 class="section-title">¿Cómo unirse?</h2>
-        </div>
-        <div class="grid grid-3">
-          <div class="card">
-            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>
-            <h3 class="card__title">1. Envía tu solicitud</h3>
-            <p class="card__text">Completa el formulario de ingreso con tus datos académicos y carta breve de motivos.</p>
-          </div>
-          <div class="card">
-            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
-            <h3 class="card__title">2. Revisión de la Mesa Directiva</h3>
-            <p class="card__text">La Mesa Directiva revisa tu perfil y documentación. Recibirás una notificación por correo.</p>
-          </div>
-          <div class="card">
-            <span class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg></span>
-            <h3 class="card__title">3. Integración a la red</h3>
-            <p class="card__text">Si tu solicitud es aprobada, quedas integrado al catálogo de miembros activos de REDMIA.</p>
-          </div>
-        </div>
-        <p class="text-center mt-xl">
-          <a href="solicitar-ingreso.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
-        </p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">RED<span style="color:var(--c-accent)">MIA</span></span>
-          <p class="footer__about">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Academia, investigación y uso responsable de la IA generativa.</p>
+          <a href="index.html" class="footer__logo">
+            <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+            <span class="footer__logo-text">REDMIA</span>
+          </a>
+          <p class="footer__description">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Torreón, Coahuila, México.</p>
         </div>
-        <div class="footer__col">
-          <h4>La Red</h4>
-          <ul>
-            <li><a href="quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="mesa-directiva.html">Mesa directiva</a></li>
-            <li><a href="coordinaciones.html">Coordinaciones</a></li>
-            <li><a href="estatutos.html">Estatutos</a></li>
+        <div>
+          <h4 class="footer__heading">Red</h4>
+          <ul class="footer__links">
+            <li><a href="quienes-somos.html" class="footer__link">Quiénes somos</a></li>
+            <li><a href="estatutos.html" class="footer__link">Estatutos</a></li>
+            <li><a href="mesa-directiva.html" class="footer__link">Mesa directiva</a></li>
+            <li><a href="coordinaciones.html" class="footer__link">Coordinaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Investigación</h4>
-          <ul>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="publicaciones.html">Publicaciones</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="noticias.html">Noticias</a></li>
+        <div>
+          <h4 class="footer__heading">Participa</h4>
+          <ul class="footer__links">
+            <li><a href="membresias.html" class="footer__link">Membresías</a></li>
+            <li><a href="formulario.html" class="footer__link">Solicitar ingreso</a></li>
+            <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+            <li><a href="publicaciones.html" class="footer__link">Publicaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Contacto</h4>
-          <div class="footer__contact">
-            <span>📍 Torreón, Coahuila — México</span>
-            <a href="mailto:contacto@redmia.org">✉ contacto@redmia.org</a>
-            <a href="solicitar-ingreso.html" class="btn btn--accent btn--block mt-sm">Únete a la red</a>
-          </div>
+        <div>
+          <h4 class="footer__heading">Contacto</h4>
+          <ul class="footer__links">
+            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+            <li><a href="noticias.html" class="footer__link">Noticias</a></li>
+            <li><a href="eventos.html" class="footer__link">Eventos</a></li>
+            <li><a href="avisos.html" class="footer__link">Avisos</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© <span data-year>2026</span> REDMIA. Todos los derechos reservados.</p>
-        <p><a href="aviso-privacidad.html">Aviso de privacidad</a> · <a href="estatutos.html">Estatutos</a></p>
+        <p class="footer__copyright">&copy; 2024 REDMIA. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="aviso-privacidad.html" class="footer__legal-link">Aviso de Privacidad</a>
+        </div>
       </div>
     </div>
   </footer>

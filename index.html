@@ -3,374 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REDMIA · Red de Investigaciones Multidisciplinarias con Inteligencia Artificial</title>
-  <meta name="description" content="REDMIA es una red académica multidisciplinaria dedicada a la investigación, la docencia y el uso responsable de la inteligencia artificial generativa. Fundada en Torreón, Coahuila.">
-  <meta name="author" content="REDMIA">
-  <link rel="canonical" href="https://redmia.org/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="REDMIA · Red de Investigaciones Multidisciplinarias con IA">
-  <meta property="og:description" content="Red académica dedicada a la investigación, la docencia y el uso responsable de la inteligencia artificial generativa.">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:image" content="assets/img/logo-mark.svg">
-
-  <!-- Favicon -->
+  <meta name="description" content="REDMIA - Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Una red académica dedicada a la investigación, la docencia y el uso responsable de la IA generativa.">
+  <title>REDMIA — Red de Investigaciones Multidisciplinarias con Inteligencia Artificial</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
-
-  <!-- Tipografía -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Estilos -->
-  <link rel="stylesheet" href="assets/css/reset.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-
-  <!-- ===================== HEADER ===================== -->
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav" aria-label="Navegación principal">
-        <a href="index.html" class="brand" aria-label="REDMIA, inicio">
-          <img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">
-          <span class="brand__name">RED<span>MIA</span></span>
-        </a>
-
-        <ul class="nav__menu" role="menubar">
-          <!-- La Red -->
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              La Red
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="quienes-somos.html" class="dropdown__link" role="menuitem">Quiénes somos</a></li>
-              <li role="none"><a href="mesa-directiva.html" class="dropdown__link" role="menuitem">Mesa directiva</a></li>
-              <li role="none"><a href="coordinaciones.html" class="dropdown__link" role="menuitem">Coordinaciones</a></li>
-              <li role="none"><a href="estatutos.html" class="dropdown__link" role="menuitem">Estatutos</a></li>
-              <li role="none"><a href="aviso-privacidad.html" class="dropdown__link" role="menuitem">Aviso de privacidad</a></li>
-            </ul>
-          </li>
-          <!-- Investigación -->
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              Investigación
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="proyectos.html" class="dropdown__link" role="menuitem">Proyectos</a></li>
-              <li role="none"><a href="publicaciones.html" class="dropdown__link" role="menuitem">Publicaciones</a></li>
-            </ul>
-          </li>
-          <!-- Comunidad -->
-          <li class="nav__item" role="none">
-            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true" aria-expanded="false">
-              Comunidad
-              <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <ul class="dropdown" role="menu">
-              <li role="none"><a href="membresias.html" class="dropdown__link" role="menuitem">Membresías</a></li>
-              <li role="none"><a href="noticias.html" class="dropdown__link" role="menuitem">Noticias</a></li>
-              <li role="none"><a href="eventos.html" class="dropdown__link" role="menuitem">Eventos</a></li>
-              <li role="none"><a href="avisos.html" class="dropdown__link" role="menuitem">Avisos</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <a href="solicitar-ingreso.html" class="btn btn--accent nav__cta">Únete a la red</a>
-
-        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
-          <span></span><span></span><span></span>
-        </button>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+        <span class="header__logo-text">REDMIA</span>
+      </a>
+      <nav class="header__nav" id="mainNav">
+        <a href="index.html" class="header__nav-link active">Inicio</a>
+        <a href="quienes-somos.html" class="header__nav-link">Quiénes somos</a>
+        <a href="membresias.html" class="header__nav-link">Membresías</a>
+        <a href="publicaciones.html" class="header__nav-link">Publicaciones</a>
+        <a href="eventos.html" class="header__nav-link">Eventos</a>
+        <a href="contacto.html" class="header__nav-link">Contacto</a>
       </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--secondary btn--sm">Iniciar Sesión</a>
+        <a href="formulario.html" class="btn btn--accent btn--sm">Únete a la red</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <svg class="header__menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18"></path>
+        </svg>
+      </button>
     </div>
   </header>
 
-  <!-- ===================== MENÚ MÓVIL ===================== -->
-  <div class="nav-overlay" aria-hidden="true"></div>
-  <aside class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">
-    <div class="mobile-nav__head">
-      <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="30" height="30">RED<span style="color:var(--c-accent)">MIA</span></span>
-      <button class="mobile-nav__close" aria-label="Cerrar menú">&times;</button>
+  <!-- Hero -->
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="assets/img/6307c912b14822caa346de34.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+      <div class="hero__content">
+        <h1 class="hero__title">REDMIA</h1>
+        <p class="hero__subtitle" style="font-size: var(--text-xl); color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+          Red de Investigaciones Multidisciplinarias con Inteligencia Artificial
+        </p>
+        <p class="hero__subtitle">
+          Una red académica multidisciplinaria dedicada a la investigación, la docencia y el uso responsable de la inteligencia artificial generativa.
+        </p>
+        <p class="hero__subtitle" style="font-size: var(--text-base); color: rgba(255,255,255,0.8); max-width: 600px;">
+          REDMIA reúne a investigadores, docentes y profesionales de distintas disciplinas interesados en explorar el potencial de la inteligencia artificial generativa para la investigación académica y la enseñanza. Con sede en Torreón, Coahuila, impulsamos la colaboración interinstitucional, la producción científica y la formación continua en un campo que transforma la manera de investigar y de enseñar. Somos un proyecto académico en construcción, con una ruta clara hacia nuestra constitución como Asociación Civil.
+        </p>
+        <div class="hero__actions">
+          <a href="formulario.html" class="btn btn--accent btn--lg">Únete a la red</a>
+          <a href="quienes-somos.html" class="btn btn--secondary btn--lg" style="border-color: white; color: white;">Conócenos</a>
+          <a href="publicaciones.html" class="btn btn--secondary btn--lg" style="border-color: white; color: white;">Explora nuestras publicaciones</a>
+        </div>
+      </div>
     </div>
-    <ul class="mobile-nav__menu">
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">La Red</p>
-        <a href="quienes-somos.html" class="mobile-nav__link">Quiénes somos</a>
-        <a href="mesa-directiva.html" class="mobile-nav__link">Mesa directiva</a>
-        <a href="coordinaciones.html" class="mobile-nav__link">Coordinaciones</a>
-        <a href="estatutos.html" class="mobile-nav__link">Estatutos</a>
-        <a href="aviso-privacidad.html" class="mobile-nav__link">Aviso de privacidad</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Investigación</p>
-        <a href="proyectos.html" class="mobile-nav__link">Proyectos</a>
-        <a href="publicaciones.html" class="mobile-nav__link">Publicaciones</a>
-      </li>
-      <li class="mobile-nav__group">
-        <p class="mobile-nav__group-title">Comunidad</p>
-        <a href="membresias.html" class="mobile-nav__link">Membresías</a>
-        <a href="noticias.html" class="mobile-nav__link">Noticias</a>
-        <a href="eventos.html" class="mobile-nav__link">Eventos</a>
-        <a href="avisos.html" class="mobile-nav__link">Avisos</a>
-      </li>
-    </ul>
-    <div class="mobile-nav__foot">
-      <a href="solicitar-ingreso.html" class="btn btn--accent btn--block">Únete a la red</a>
+  </section>
+
+  <!-- Bloques dinámicos -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        <!-- Próximos Eventos -->
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <h3>Próximos Eventos</h3>
+            <a href="eventos.html" class="btn btn--secondary btn--sm">Ver todos</a>
+          </div>
+          <div class="card mb-4">
+            <div class="card__body">
+              <span class="badge badge--accent mb-4">Conferencia</span>
+              <h4>Conferencia Magistral Inaugural</h4>
+              <p class="text-sm text-muted">Julio 2026 — Virtual</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__body">
+              <span class="badge badge--accent mb-4">Conversatorio</span>
+              <h4>IA Generativa en la Docencia</h4>
+              <p class="text-sm text-muted">Agosto 2026 — Virtual</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Últimas Noticias -->
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <h3>Últimas Noticias</h3>
+            <a href="noticias.html" class="btn btn--secondary btn--sm">Ver todas</a>
+          </div>
+          <div class="card mb-4">
+            <div class="card__body">
+              <span class="text-sm text-muted">16 jul 2026</span>
+              <h4 style="margin-top: var(--space-2);">Conferencia inaugural confirmada</h4>
+              <p class="text-sm">La conferencia inaugural se realizará en julio de 2026.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__body">
+              <span class="text-sm text-muted">15 jul 2026</span>
+              <h4 style="margin-top: var(--space-2);">Red en construcción</h4>
+              <p class="text-sm">La red se encuentra en su fase de conformación.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publicación Destacada -->
+        <div>
+          <div class="flex justify-between items-center mb-6">
+            <h3>Publicación Destacada</h3>
+            <a href="publicaciones.html" class="btn btn--secondary btn--sm">Ver todas</a>
+          </div>
+          <div class="card">
+            <div class="card__body">
+              <span class="badge badge--primary mb-4">Periódico Digital</span>
+              <h4>Periódico Digital REDMIA</h4>
+              <p class="text-sm text-muted">ISSN [por asignar] — Trimestral</p>
+              <p>Artículos, reflexiones y avances de investigación de la comunidad REDMIA.</p>
+              <a href="publicaciones.html" class="btn btn--primary btn--sm mt-4">Leer más</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </aside>
+  </section>
 
-  <main>
-
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero__grid">
-          <div class="hero__content">
-            <h1 class="hero__title">REDMIA — Red de Investigaciones Multidisciplinarias con <span>Inteligencia Artificial</span></h1>
-            <span class="eyebrow">Una red académica multidisciplinaria dedicada a la investigación, la docencia y el uso responsable de la inteligencia artificial generativa.</span>
-            <p class="hero__lead" style="font-size: 1.1rem;">REDMIA reúne a investigadores, docentes y profesionales de distintas disciplinas interesados en explorar el potencial de la inteligencia artificial generativa para la investigación académica y la enseñanza. Con sede en Torreón, Coahuila, impulsamos la colaboración interinstitucional, la producción científica y la formación continua en un campo que transforma la manera de investigar y de enseñar. Somos un proyecto académico en construcción, con una ruta clara hacia nuestra constitución como Asociación Civil.</p>
-            <div class="hero__actions btn-group" style="flex-wrap: wrap;">
-              <a href="solicitar-ingreso.html" class="btn btn--accent btn--lg">Únete a la red</a>
-              <a href="quienes-somos.html" class="btn btn--outline btn--lg">Conócenos</a>
-              <a href="publicaciones.html" class="btn btn--outline btn--lg">Explora nuestras publicaciones</a>
-            </div>
-
-            <div class="hero__meta">
-              <div class="hero__meta-item">
-                <span class="hero__meta-num">5</span>
-                <span class="hero__meta-label">Ejes de coordinación</span>
-              </div>
-              <div class="hero__meta-item">
-                <span class="hero__meta-num">4</span>
-                <span class="hero__meta-label">Categorías de membresía</span>
-              </div>
-              <div class="hero__meta-item">
-                <span class="hero__meta-num">3</span>
-                <span class="hero__meta-label">Etapas institucionales</span>
-              </div>
-            </div>
+  <!-- Próximos Eventos -->
+  <section class="section" style="background-color: #D9ADA7;">
+    <div class="container">
+      <div class="text-center mb-8">
+        <h2>Próximos Eventos</h2>
+        <p class="text-lg" style="color: #000;">Participa en nuestras actividades académicas</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--accent mb-4">Conversatorio</span>
+            <h4>IA Generativa en la Docencia</h4>
+            <p class="text-sm text-muted">Próximamente — Modalidad virtual</p>
+            <p>Estrategias y recursos para incorporar la IA generativa en la práctica docente.</p>
           </div>
-
-          <div class="hero__visual">
-            <img src="assets/img/logo-mark.svg" alt="" class="hero__visual-mark">
-            <div>
-              <p class="hero__visual-quote">"Una red ligera y colaborativa, no una estructura institucional pesada."</p>
-              <p class="hero__visual-cite">Modelo de REDMIA</p>
-            </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--accent mb-4">Conversatorio</span>
+            <h4>Ética y Rigor en el Uso de IA</h4>
+            <p class="text-sm text-muted">Próximamente — Modalidad virtual</p>
+            <p>Reflexión sobre los límites, riesgos y responsabilidades del uso de la IA generativa.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--accent mb-4">Conversatorio</span>
+            <h4>Herramientas de IA para Investigadores</h4>
+            <p class="text-sm text-muted">Próximamente — Modalidad virtual</p>
+            <p>Acerca a la comunidad las herramientas de IA generativa disponibles.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===================== MISIÓN RÁPIDA ===================== -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="grid grid-3">
-          <div class="feature">
-            <span class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
-            <div>
-              <h3 class="feature__title">Investigación</h3>
-              <p class="feature__text">Fomentamos la investigación multidisciplinaria y la formación docente en el uso de la IA generativa.</p>
-            </div>
+  <!-- Últimas Publicaciones -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="text-center mb-8">
+        <h2>Últimas Publicaciones</h2>
+        <p class="text-lg text-muted">Explora la producción académica de nuestra red</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--primary mb-4">Periódico Digital</span>
+            <h4>Periódico Digital REDMIA</h4>
+            <p class="text-sm text-muted">Publicación trimestral con ISSN</p>
+            <p>Artículos, reflexiones y avances de investigación de la comunidad REDMIA.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-            <div>
-              <h3 class="feature__title">Colaboración</h3>
-              <p class="feature__text">Conectamos a instituciones e investigadores mediante un modelo ligero y colaborativo.</p>
-            </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--primary mb-4">Libro Colectivo</span>
+            <h4>Libro Colectivo REDMIA</h4>
+            <p class="text-sm text-muted">Obra colaborativa con ISBN y DOI</p>
+            <p>Contribuciones de los distintos ejes temáticos de la red.</p>
           </div>
-          <div class="feature">
-            <span class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
-            <div>
-              <h3 class="feature__title">Ética y rigor</h3>
-              <p class="feature__text">Promovemos un uso ético, transparente y académicamente riguroso de la IA.</p>
-            </div>
+        </div>
+        <div class="card">
+          <div class="card__body">
+            <span class="badge badge--primary mb-4">Memorias</span>
+            <h4>Memorias de Conversatorios</h4>
+            <p class="text-sm text-muted">Registro de discusiones académicas</p>
+            <p>Registro de las discusiones generadas en nuestra serie de conversatorios.</p>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ===================== PUBLICACIÓN DESTACADA ===================== -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Publicación destacada</span>
-          <h2 class="section-title">Periódico Digital REDMIA</h2>
-        </div>
-
-        <article class="feature-pub">
-          <div class="feature-pub__media">
-            <img src="assets/img/logo-mark.svg" alt="" class="feature-pub__media-mark">
-          </div>
-          <div class="feature-pub__body">
-            <div class="feature-pub__meta">
-              <span class="badge">Publicación periódica</span>
-              <span class="badge badge--primary">ISSN en trámite</span>
-            </div>
-            <h3 class="feature-pub__title">Número 1 · Periódico Digital REDMIA</h3>
-            <p class="text-muted">Espacio editorial de la red para la difusión de avances de investigación, ensayos y colaboraciones multidisciplinarias en torno a la inteligencia artificial generativa.</p>
-            <div class="btn-group">
-              <a href="publicaciones.html" class="btn btn--primary">Ver publicaciones</a>
-            </div>
-            <p class="hint" style="font-size:var(--fs-300);color:var(--c-muted)">El número inaugural será publicado conforme al plan de trabajo agosto–diciembre 2026.</p>
-          </div>
-        </article>
+      <div class="text-center mt-8">
+        <a href="publicaciones.html" class="btn btn--primary">Ver todas las publicaciones</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ===================== PRÓXIMOS EVENTOS + NOTICIAS ===================== -->
-    <section class="section">
-      <div class="container">
-        <div class="grid" style="grid-template-columns: 1fr 1fr; align-items:start;">
-          <!-- Eventos -->
-          <div>
-            <div class="section-head">
-              <span class="eyebrow">Agenda</span>
-              <h2 class="section-title" style="font-size:var(--fs-700)">Próximos eventos</h2>
-            </div>
-            <div class="mini-list">
-              <a href="eventos.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">28</span>
-                  <span class="mini-item__date-month">Ago</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">Conversatorio: IA generativa en la investigación</h3>
-                  <span class="mini-item__cat">Virtual · 17:00 h</span>
-                </div>
-              </a>
-              <a href="eventos.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">25</span>
-                  <span class="mini-item__date-month">Sep</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">Mesa de diálogo: ética y docencia con IA</h3>
-                  <span class="mini-item__cat">Híbrido · Torreón, Coah.</span>
-                </div>
-              </a>
-              <a href="eventos.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">30</span>
-                  <span class="mini-item__date-month">Oct</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">Taller de formación docente en IA</h3>
-                  <span class="mini-item__cat">Presencial · 10:00 h</span>
-                </div>
-              </a>
-            </div>
-            <p class="mt-md"><a href="eventos.html" class="btn btn--outline">Ver todos los eventos →</a></p>
-          </div>
+  <!-- Membresía CTA -->
+  <section class="section cta-video" style="position: relative; overflow: hidden; color: white;">
+    <video class="cta-video__bg" autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <source src="assets/img/661e7d8cfce08904fc2cc093.mp4" type="video/mp4">
+    </video>
+    <div class="cta-video__overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;"></div>
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <h2 style="color: white;">Forma parte de REDMIA</h2>
+      <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
+        Únete a una comunidad académica comprometida con la investigación y la enseñanza responsable de la inteligencia artificial generativa. Cuota voluntaria anual de $950 MXN.
+      </p>
+      <a href="formulario.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
+    </div>
+  </section>
 
-          <!-- Noticias -->
-          <div>
-            <div class="section-head">
-              <span class="eyebrow">Actualidad</span>
-              <h2 class="section-title" style="font-size:var(--fs-700)">Últimas noticias</h2>
-            </div>
-            <div class="mini-list">
-              <a href="noticias.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">13</span>
-                  <span class="mini-item__date-month">Jul</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">REDMIA abre su convocatoria de socios fundadores</h3>
-                  <span class="mini-item__cat">Convocatorias</span>
-                </div>
-              </a>
-              <a href="noticias.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">01</span>
-                  <span class="mini-item__date-month">Jul</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">Arranca el diagnóstico de investigación 2026</h3>
-                  <span class="mini-item__cat">Vida institucional</span>
-                </div>
-              </a>
-              <a href="noticias.html" class="mini-item card--link">
-                <div class="mini-item__date">
-                  <span class="mini-item__date-day">15</span>
-                  <span class="mini-item__date-month">Jun</span>
-                </div>
-                <div class="mini-item__body">
-                  <h3 class="mini-item__title">Se conforma la Mesa Directiva de la red</h3>
-                  <span class="mini-item__cat">Logros</span>
-                </div>
-              </a>
-            </div>
-            <p class="mt-md"><a href="noticias.html" class="btn btn--outline">Ver todas las noticias →</a></p>
-          </div>
-        </div>
-        <div class="notice notice--info mt-xl">
-          <svg class="notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          <p><strong>Red en crecimiento</strong>REDMIA se encuentra en fase de constitución. Comunicamos la ruta institucional (red informal → Asociación Civil → centro de formación con RVOE) como una fortaleza de proyecto en construcción.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CTA ===================== -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="cta-band">
-          <h2>¿Quieres formar parte de REDMIA?</h2>
-          <p>Únete como investigador, docente o estudiante y colabora en el desarrollo responsable de la inteligencia artificial en México.</p>
-          <div class="btn-group">
-            <a href="solicitar-ingreso.html" class="btn btn--accent btn--lg">Solicitar ingreso</a>
-            <a href="membresias.html" class="btn btn--ghost btn--lg">Ver categorías</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="brand"><img src="assets/img/logo-mark.svg" alt="" class="brand__mark" width="34" height="34">RED<span style="color:var(--c-accent)">MIA</span></span>
-          <p class="footer__about">Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. Academia, investigación y uso responsable de la IA generativa.</p>
+          <a href="index.html" class="footer__logo">
+            <img src="assets/img/logo-mark.svg" alt="REDMIA Logo">
+            <span class="footer__logo-text">REDMIA</span>
+          </a>
+          <p class="footer__description">
+            Red de Investigaciones Multidisciplinarias con Inteligencia Artificial. 
+            Torreón, Coahuila, México.
+          </p>
         </div>
-        <div class="footer__col">
-          <h4>La Red</h4>
-          <ul>
-            <li><a href="quienes-somos.html">Quiénes somos</a></li>
-            <li><a href="mesa-directiva.html">Mesa directiva</a></li>
-            <li><a href="coordinaciones.html">Coordinaciones</a></li>
-            <li><a href="estatutos.html">Estatutos</a></li>
+        <div>
+          <h4 class="footer__heading">Red</h4>
+          <ul class="footer__links">
+            <li><a href="quienes-somos.html" class="footer__link">Quiénes somos</a></li>
+            <li><a href="estatutos.html" class="footer__link">Estatutos</a></li>
+            <li><a href="mesa-directiva.html" class="footer__link">Mesa directiva</a></li>
+            <li><a href="coordinaciones.html" class="footer__link">Coordinaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Investigación</h4>
-          <ul>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="publicaciones.html">Publicaciones</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="noticias.html">Noticias</a></li>
+        <div>
+          <h4 class="footer__heading">Participa</h4>
+          <ul class="footer__links">
+            <li><a href="membresias.html" class="footer__link">Membresías</a></li>
+            <li><a href="formulario.html" class="footer__link">Solicitar ingreso</a></li>
+            <li><a href="proyectos.html" class="footer__link">Proyectos</a></li>
+            <li><a href="publicaciones.html" class="footer__link">Publicaciones</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Contacto</h4>
-          <div class="footer__contact">
-            <span>📍 Torreón, Coahuila — México</span>
-            <a href="mailto:contacto@redmia.org">✉ contacto@redmia.org</a>
-            <a href="solicitar-ingreso.html" class="btn btn--accent btn--block mt-sm">Únete a la red</a>
-          </div>
+        <div>
+          <h4 class="footer__heading">Contacto</h4>
+          <ul class="footer__links">
+            <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+            <li><a href="noticias.html" class="footer__link">Noticias</a></li>
+            <li><a href="eventos.html" class="footer__link">Eventos</a></li>
+            <li><a href="avisos.html" class="footer__link">Avisos</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>© <span data-year>2026</span> REDMIA. Todos los derechos reservados.</p>
-        <p><a href="aviso-privacidad.html">Aviso de privacidad</a> · <a href="estatutos.html">Estatutos</a></p>
+        <p class="footer__copyright">&copy; 2024 REDMIA. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="aviso-privacidad.html" class="footer__legal-link">Aviso de Privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
