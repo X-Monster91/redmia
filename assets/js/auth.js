@@ -120,26 +120,36 @@ const Auth = {
 
 // Login form handler
 document.addEventListener('DOMContentLoaded', async function() {
+  console.log('[REDMIA] auth.js loaded');
+  
   const loginForm = document.getElementById('loginForm');
   const loginError = document.getElementById('loginError');
   const logoutBtn = document.getElementById('logoutBtn');
 
   if (loginForm) {
+    console.log('[REDMIA] Login form found, attaching handler');
     loginForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+      console.log('[REDMIA] Form submitted');
       
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       
+      console.log('[REDMIA] Attempting login for:', email);
       const result = await Auth.login(email, password);
+      console.log('[REDMIA] Login result:', result);
       
       if (result.success) {
-        window.location.href = 'admin.html';
+        console.log('[REDMIA] Login successful, redirecting to admin');
+        window.location.href = '/admin';
       } else {
+        console.log('[REDMIA] Login failed:', result.error);
         loginError.style.display = 'block';
         loginError.textContent = result.error;
       }
     });
+  } else {
+    console.log('[REDMIA] No login form found');
   }
 
   if (logoutBtn) {
