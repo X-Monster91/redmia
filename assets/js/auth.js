@@ -149,11 +149,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
   }
 
-  // Redirect if not logged in (for admin page)
-  if (window.location.pathname.includes('admin.html')) {
+  // Redirect if not logged in (for admin page) - works with Netlify clean URLs
+  const path = window.location.pathname;
+  if (path.includes('admin') && !path.includes('login')) {
     const isLoggedIn = await Auth.isLoggedIn();
     if (!isLoggedIn) {
-      window.location.href = 'login.html';
+      window.location.href = '/login';
+      return;
+    }
+    // Update welcome message with user name
+    const user = await Auth.getUser();
+    if (user) {
+      const welcomeMsg = document.getElementById('welcomeMsg');
+      if (welcomeMsg) {
+        const displayName = user.name || user.email;
+        welcomeMsg.textContent = `Bienvenido, ${displayName}`;
+      }
     }
   }
 

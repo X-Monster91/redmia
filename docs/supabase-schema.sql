@@ -4,27 +4,21 @@
 ```sql
 CREATE TABLE solicitudes (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  -- Datos personales
   nombre TEXT NOT NULL,
   apellido TEXT NOT NULL,
   email TEXT UNIQUE NOT NULL,
   telefono TEXT,
-  -- Datos académicos
   institucion TEXT NOT NULL,
   cargo TEXT NOT NULL,
   grado TEXT NOT NULL CHECK (grado IN ('licenciatura', 'maestria', 'doctorado', 'postdoc')),
   especialidad TEXT NOT NULL,
-  -- Membresía
   categoria TEXT NOT NULL CHECK (categoria IN ('activo', 'estudiante')),
   eje TEXT NOT NULL CHECK (eje IN ('metodologias', 'docencia', 'etica', 'herramientas')),
   motivos TEXT NOT NULL,
-  -- Archivos
   cv_url TEXT,
   comprobante_url TEXT,
-  -- Estado
   estado TEXT DEFAULT 'pendiente' CHECK (estado IN ('pendiente', 'aprobado', 'rechazado', 'verificando')),
   notas_admin TEXT,
-  -- Timestamps
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -35,24 +29,19 @@ CREATE TABLE solicitudes (
 CREATE TABLE miembros (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   solicitud_id UUID REFERENCES solicitudes(id) ON DELETE SET NULL,
-  -- Datos personales
   nombre TEXT NOT NULL,
   apellido TEXT NOT NULL,
   email TEXT UNIQUE NOT NULL,
   telefono TEXT,
-  -- Datos académicos
   institucion TEXT NOT NULL,
   cargo TEXT NOT NULL,
   grado TEXT NOT NULL,
   especialidad TEXT NOT NULL,
-  -- Membresía
   categoria TEXT NOT NULL CHECK (categoria IN ('fundador', 'honorario', 'activo', 'estudiante', 'adherente')),
   eje TEXT NOT NULL CHECK (eje IN ('metodologias', 'docencia', 'etica', 'herramientas')),
-  -- Estado
   activo BOOLEAN DEFAULT true,
   fecha_ingreso DATE DEFAULT CURRENT_DATE,
   fecha_vencimiento DATE,
-  -- Timestamps
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 ```
@@ -65,7 +54,7 @@ CREATE TABLE admin_users (
   email TEXT UNIQUE NOT NULL,
   nombre TEXT NOT NULL,
   apellido TEXT NOT NULL,
-  rol TEXT NOT NULL CHECK (rol IN ('presidenta', 'secretario', 'tesorero', 'coordinadora', 'vocal')),
+  rol TEXT NOT NULL CHECK (rol IN ('presidente', 'secretario', 'tesorero', 'coordinador', 'vocal')),
   activo BOOLEAN DEFAULT true,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -88,42 +77,35 @@ CREATE TABLE notificaciones (
 
 ### Solicitudes
 ```sql
--- Anyone can insert (submit a request)
 CREATE POLICY "Cualquiera puede enviar solicitudes" ON solicitudes
   FOR INSERT WITH CHECK (true);
 
--- Only authenticated admin can view all
 CREATE POLICY "Admin puede ver todas las solicitudes" ON solicitudes
-  FOR SELECT USING (auth.role() = 'authenticated');
+  FOR SELECT USING (auth.uid() IS NOT NULL);
 
--- Only authenticated admin can update
 CREATE POLICY "Admin puede actualizar solicitudes" ON solicitudes
-  FOR UPDATE USING (auth.role() = 'authenticated');
+  FOR UPDATE USING (auth.uid() IS NOT NULL);
 ```
 
 ### Miembros
 ```sql
--- Anyone can view active members (public directory)
 CREATE POLICY "Miembros activos son públicos" ON miembros
   FOR SELECT USING (activo = true);
 
--- Only authenticated admin can manage members
 CREATE POLICY "Admin puede gestionar miembros" ON miembros
-  FOR ALL USING (auth.role() = 'authenticated');
+  FOR ALL USING (auth.uid() IS NOT NULL);
 ```
 
 ### Admin Users
 ```sql
--- Only authenticated admins can view
 CREATE POLICY "Admins pueden ver admin_users" ON admin_users
-  FOR SELECT USING (auth.role() = 'authenticated');
+  FOR SELECT USING (auth.uid() IS NOT NULL);
 
--- Only presidents can manage admin users
-CREATE POLICY "Presidenta puede gestionar admin_users" ON admin_users
+CREATE POLICY "Presidente puede gestionar admin_users" ON admin_users
   FOR ALL USING (
     EXISTS (
-      SELECT 1 FROM admin_users 
-      WHERE user_id = auth.uid() AND rol = 'presidenta'
+      SELECT 1 FROM admin_users
+      WHERE user_id = auth.uid() AND rol = 'presidente'
     )
   );
 ```
@@ -137,10 +119,8 @@ RETURNS VOID AS $$
 DECLARE
   sol RECORD;
 BEGIN
-  -- Get the request
   SELECT * INTO sol FROM solicitudes WHERE id = solicitud_id;
-  
-  -- Create member
+
   INSERT INTO miembros (
     solicitud_id, nombre, apellido, email, telefono,
     institucion, cargo, grado, especialidad,
@@ -152,9 +132,8 @@ BEGIN
     sol.eje,
     CURRENT_DATE + INTERVAL '1 year'
   );
-  
-  -- Update request status
-  UPDATE solicitudes 
+
+  UPDATE solicitudes
   SET estado = 'aprobado', updated_at = NOW()
   WHERE id = solicitud_id;
 END;
@@ -166,9 +145,18 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 CREATE OR REPLACE FUNCTION rechazar_solicitud(solicitud_id UUID, notas TEXT DEFAULT NULL)
 RETURNS VOID AS $$
 BEGIN
-  UPDATE solicitudes 
+  UPDATE solicitudes
   SET estado = 'rechazado', notas_admin = notas, updated_at = NOW()
   WHERE id = solicitud_id;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
+```
+
+## Insertar usuarios admin
+```sql
+INSERT INTO admin_users (user_id, email, nombre, apellido, rol)
+VALUES ('da721f57-58eb-43f3-a133-82ab575d5399', 'prueba01@gmail.com', 'Josue', 'David', 'presidente');
+
+INSERT INTO admin_users (user_id, email, nombre, apellido, rol)
+VALUES ('486bd6c1-029e-42ad-bc2b-aa3eeda69f23', 'prueba02@gmail.com', 'Josue', 'Briones', 'presidente');
 ```

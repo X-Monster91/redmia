@@ -43,3 +43,6 @@ Thumbs.db
 *.log
 *.tmp
 *.temp
+
+# Saved web pages
+assets/img/REDMIA *

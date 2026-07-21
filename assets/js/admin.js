@@ -3,8 +3,9 @@
 const API_BASE = '/.netlify/functions';
 
 document.addEventListener('DOMContentLoaded', async function() {
-  // Check if we're on admin page
-  if (!window.location.pathname.includes('admin.html')) return;
+  // Check if we're on admin page (Netlify serves /admin without .html)
+  const path = window.location.pathname;
+  if (!path.includes('admin') || path.includes('login')) return;
 
   // Load pending requests
   await loadSolicitudes('pendiente');
