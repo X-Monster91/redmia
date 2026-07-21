@@ -1,7 +1,7 @@
 // auth.js - Authentication system for REDMIA (Supabase)
 
 const SUPABASE_URL = 'https://nyybxbljwzwfpkrdwvi.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_lTnL0KPeOVpXlasTIUyRrg_KSTADEx3';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55eWJ4Ymxqd3p3bGZwa3Jkd3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ1NjI5MTMsImV4cCI6MjEwMDEzODkxM30.clodXoRAgeI6zReeqz7tTY6z5vsYayyQazJwpstV7yw';
 
 // Initialize Supabase client
 const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
