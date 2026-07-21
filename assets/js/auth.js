@@ -3,46 +3,55 @@
 const SUPABASE_URL = 'https://nyybxbljwzwfpkrdwvi.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55eWJ4Ymxqd3p3bGZwa3Jkd3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ1NjI5MTMsImV4cCI6MjEwMDEzODkxM30.clodXoRAgeI6zReeqz7tTY6z5vsYayyQazJwpstV7yw';
 
-// Initialize Supabase client
-const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+let supabase = null;
+try {
+  if (window.supabase && window.supabase.createClient) {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+} catch (e) {
+  console.warn('[REDMIA] Supabase client init failed:', e);
+}
 
 const Auth = {
-  // Check if Supabase is configured
   isConfigured() {
     return supabase !== null && !SUPABASE_URL.includes('YOUR_PROJECT');
   },
 
-  // Check if user is logged in
   async isLoggedIn() {
     if (!this.isConfigured()) {
       return localStorage.getItem('redmia_user') !== null;
     }
-    const { data: { session } } = await supabase.auth.getSession();
-    return session !== null;
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      return session !== null;
+    } catch (e) {
+      return localStorage.getItem('redmia_user') !== null;
+    }
   },
 
-  // Get current user
   async getUser() {
     if (!this.isConfigured()) {
       const user = localStorage.getItem('redmia_user');
       return user ? JSON.parse(user) : null;
     }
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) return null;
-    
-    const { data: { user } } = await supabase.auth.getUser();
-    return user;
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return null;
+      const { data: { user } } = await supabase.auth.getUser();
+      return user;
+    } catch (e) {
+      const user = localStorage.getItem('redmia_user');
+      return user ? JSON.parse(user) : null;
+    }
   },
 
-  // Login
   async login(email, password) {
     if (!this.isConfigured()) {
-      // Demo mode - Mesa Directiva only
       const mesaDirectiva = [
         { email: 'diana.ramirez@universidad.mx', password: 'redmia2024', name: 'Dra. Diana Laura Ramírez Sánchez', role: 'presidente' },
         { email: 'francisco.martinez@universidad.mx', password: 'redmia2024', name: 'Dr. Francisco Martínez Cruz', role: 'secretario' },
         { email: 'carlos.gonzalez@universidad.mx', password: 'redmia2024', name: 'Dr. Carlos González López', role: 'tesorero' },
-        { email: 'ana.hernandez@universidad.mx', password: 'redmia2024', name: 'Mtra. Ana Hernández Torres', role: 'coordinador' },
+        { email: 'ana.hernandez@universidad.mx', password: 'redmia2024', name: 'Mtra. Ana Hernández Torres', role: 'coordinadora' },
         { email: 'roberto.sanchez@universidad.mx', password: 'redmia2024', name: 'Lic. Roberto Sánchez Díaz', role: 'vocal' }
       ];
 
@@ -58,19 +67,13 @@ const Auth = {
         return { success: true, user: user };
       }
       
-      return { success: false, error: 'Credenciales incorrectas' };
+      return { success: false, error: 'Credenciales incorrectas. Usa credenciales de Mesa Directiva.' };
     }
 
-    // Supabase mode
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
 
-      // Check if user is admin
       const { data: adminUser, error: adminError } = await supabase
         .from('admin_users')
         .select('*')
@@ -91,67 +94,28 @@ const Auth = {
         }
       };
     } catch (err) {
-      console.error('Login error:', err);
+      console.error('[REDMIA] Login error:', err);
       return { success: false, error: err.message || 'Error al iniciar sesión' };
     }
   },
 
-  // Logout
   async logout() {
     if (this.isConfigured()) {
-      await supabase.auth.signOut();
+      try { await supabase.auth.signOut(); } catch (e) {}
     }
     localStorage.removeItem('redmia_user');
-    window.location.href = 'login.html';
+    window.location.href = '/login';
   },
 
-  // Check if user is Mesa Directiva
   async isMesaDirectiva() {
     const user = await this.getUser();
-    if (!user) return false;
-    
-    if (user.role) {
-      return ['presidenta', 'secretario', 'tesorero', 'coordinadora', 'vocal'].includes(user.role);
-    }
-    
-    return false;
+    if (!user || !user.role) return false;
+    return ['presidente', 'secretario', 'tesorero', 'coordinadora', 'vocal'].includes(user.role);
   }
 };
 
-// Login form handler
 document.addEventListener('DOMContentLoaded', async function() {
-  console.log('[REDMIA] auth.js loaded');
-  
-  const loginForm = document.getElementById('loginForm');
-  const loginError = document.getElementById('loginError');
   const logoutBtn = document.getElementById('logoutBtn');
-
-  if (loginForm) {
-    console.log('[REDMIA] Login form found, attaching handler');
-    loginForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      console.log('[REDMIA] Form submitted');
-      
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      
-      console.log('[REDMIA] Attempting login for:', email);
-      const result = await Auth.login(email, password);
-      console.log('[REDMIA] Login result:', result);
-      
-      if (result.success) {
-        console.log('[REDMIA] Login successful, redirecting to admin');
-        window.location.href = '/admin';
-      } else {
-        console.log('[REDMIA] Login failed:', result.error);
-        loginError.style.display = 'block';
-        loginError.textContent = result.error;
-      }
-    });
-  } else {
-    console.log('[REDMIA] No login form found');
-  }
-
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async function(e) {
       e.preventDefault();
@@ -159,7 +123,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
   }
 
-  // Redirect if not logged in (for admin page) - works with Netlify clean URLs
   const path = window.location.pathname;
   if (path.includes('admin') && !path.includes('login')) {
     const isLoggedIn = await Auth.isLoggedIn();
@@ -167,7 +130,6 @@ document.addEventListener('DOMContentLoaded', async function() {
       window.location.href = '/login';
       return;
     }
-    // Update welcome message with user name
     const user = await Auth.getUser();
     if (user) {
       const welcomeMsg = document.getElementById('welcomeMsg');
@@ -178,7 +140,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
   }
 
-  // Update header based on auth state
   const headerActions = document.querySelector('.header__actions');
   if (headerActions) {
     const isLoggedIn = await Auth.isLoggedIn();

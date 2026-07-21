@@ -1,11 +1,19 @@
 // Netlify Function: procesar-solicitud.js
-// Approve or reject membership requests (admin only)
 
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase = null;
+try {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+  if (supabaseUrl && supabaseKey && !supabaseKey.startsWith('sb_')) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+  } else {
+    console.error('[procesar-solicitud] Missing or invalid env vars');
+  }
+} catch (e) {
+  console.error('[procesar-solicitud] Failed to init Supabase:', e.message);
+}
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -22,6 +30,10 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  if (!supabase) {
+    return { statusCode: 503, headers, body: JSON.stringify({ error: 'Servicio no configurado' }) };
+  }
+
   try {
     const { solicitud_id, accion, notas } = JSON.parse(event.body);
 
@@ -36,16 +48,12 @@ exports.handler = async (event, context) => {
     let result;
 
     if (accion === 'aprobar') {
-      // Use the RPC function to approve
       const { error } = await supabase.rpc('aprobar_solicitud', { solicitud_id });
       if (error) throw error;
-      
       result = { success: true, message: 'Solicitud aprobada. Miembro agregado al directorio.' };
     } else {
-      // Reject with notes
       const { error } = await supabase.rpc('rechazar_solicitud', { solicitud_id, notas });
       if (error) throw error;
-      
       result = { success: true, message: 'Solicitud rechazada.' };
     }
 
@@ -55,7 +63,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify(result)
     };
   } catch (err) {
-    console.error('Error:', err);
-    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al procesar solicitud' }) };
+    console.error('[procesar-solicitud] Error:', err);
+    return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al procesar solicitud: ' + err.message }) };
   }
 };

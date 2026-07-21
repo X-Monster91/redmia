@@ -1,11 +1,19 @@
 // Netlify Function: get-miembros.js
-// Get active members (public)
 
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase = null;
+try {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+  if (supabaseUrl && supabaseKey && !supabaseKey.startsWith('sb_')) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+  } else {
+    console.error('[get-miembros] Missing or invalid env vars');
+  }
+} catch (e) {
+  console.error('[get-miembros] Failed to init Supabase:', e.message);
+}
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -20,6 +28,10 @@ exports.handler = async (event, context) => {
 
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
+  }
+
+  if (!supabase) {
+    return { statusCode: 503, headers, body: JSON.stringify({ error: 'Servicio no configurado', miembros: [], total: 0 }) };
   }
 
   try {
@@ -49,8 +61,8 @@ exports.handler = async (event, context) => {
     const { data, error } = await query;
 
     if (error) {
-      console.error('Supabase error:', error);
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al obtener miembros' }) };
+      console.error('[get-miembros] Supabase error:', error);
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al obtener miembros: ' + error.message }) };
     }
 
     return {
@@ -59,7 +71,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ miembros: data, total: data.length })
     };
   } catch (err) {
-    console.error('Error:', err);
+    console.error('[get-miembros] Error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error interno del servidor' }) };
   }
 };

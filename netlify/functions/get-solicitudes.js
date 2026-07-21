@@ -1,11 +1,19 @@
 // Netlify Function: get-solicitudes.js
-// Get pending membership requests (admin only)
 
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY; // Use service key for admin operations
-const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase = null;
+try {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+  if (supabaseUrl && supabaseKey && !supabaseKey.startsWith('sb_')) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+  } else {
+    console.error('[get-solicitudes] Missing or invalid env vars');
+  }
+} catch (e) {
+  console.error('[get-solicitudes] Failed to init Supabase:', e.message);
+}
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -22,8 +30,11 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  if (!supabase) {
+    return { statusCode: 503, headers, body: JSON.stringify({ error: 'Servicio no configurado', solicitudes: [] }) };
+  }
+
   try {
-    // Get filter from query params
     const params = new URLSearchParams(event.queryStringParameters || {});
     const estado = params.get('estado') || 'pendiente';
 
@@ -34,8 +45,8 @@ exports.handler = async (event, context) => {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Supabase error:', error);
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al obtener solicitudes' }) };
+      console.error('[get-solicitudes] Supabase error:', error);
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al obtener solicitudes: ' + error.message }) };
     }
 
     return {
@@ -44,7 +55,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ solicitudes: data })
     };
   } catch (err) {
-    console.error('Error:', err);
+    console.error('[get-solicitudes] Error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error interno del servidor' }) };
   }
 };

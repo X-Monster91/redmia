@@ -1,21 +1,27 @@
 // Netlify Function: enviar-solicitud.js
-// Handles membership request submissions
 
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase = null;
+try {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+  if (supabaseUrl && supabaseKey && !supabaseKey.startsWith('sb_')) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+  } else {
+    console.error('[enviar-solicitud] Missing or invalid env vars. SUPABASE_URL:', !!supabaseUrl, 'key format:', supabaseKey ? supabaseKey.substring(0, 3) : 'missing');
+  }
+} catch (e) {
+  console.error('[enviar-solicitud] Failed to init Supabase:', e.message);
+}
 
 exports.handler = async (event, context) => {
-  // CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS'
   };
 
-  // Handle preflight
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
@@ -24,10 +30,13 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  if (!supabase) {
+    return { statusCode: 503, headers, body: JSON.stringify({ error: 'Servicio no configurado. Verifica las variables de entorno.' }) };
+  }
+
   try {
     const data = JSON.parse(event.body);
 
-    // Validate required fields
     const required = ['nombre', 'apellido', 'email', 'institucion', 'cargo', 'grado', 'especialidad', 'categoria', 'eje', 'motivos'];
     for (const field of required) {
       if (!data[field]) {
@@ -35,8 +44,7 @@ exports.handler = async (event, context) => {
       }
     }
 
-    // Insert into database
-    const { result, error } = await supabase
+    const { data: result, error } = await supabase
       .from('solicitudes')
       .insert([{
         nombre: data.nombre,
@@ -54,8 +62,8 @@ exports.handler = async (event, context) => {
       }]);
 
     if (error) {
-      console.error('Supabase error:', error);
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al enviar solicitud' }) };
+      console.error('[enviar-solicitud] Supabase error:', error);
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error al enviar solicitud: ' + error.message }) };
     }
 
     return {
@@ -68,7 +76,7 @@ exports.handler = async (event, context) => {
       })
     };
   } catch (err) {
-    console.error('Error:', err);
+    console.error('[enviar-solicitud] Error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error interno del servidor' }) };
   }
 };

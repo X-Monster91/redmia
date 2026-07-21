@@ -1,11 +1,19 @@
 // Netlify Function: login.js
-// Authentication for admin panel
 
 const { createClient } = require('@supabase/supabase-js');
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+let supabase = null;
+try {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+  if (supabaseUrl && supabaseKey && !supabaseKey.startsWith('sb_')) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+  } else {
+    console.error('[login] Missing or invalid env vars. SUPABASE_URL:', !!supabaseUrl, 'key format:', supabaseKey ? supabaseKey.substring(0, 3) : 'missing');
+  }
+} catch (e) {
+  console.error('[login] Failed to init Supabase:', e.message);
+}
 
 exports.handler = async (event, context) => {
   const headers = {
@@ -22,6 +30,10 @@ exports.handler = async (event, context) => {
     return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
+  if (!supabase) {
+    return { statusCode: 503, headers, body: JSON.stringify({ error: 'Servicio no configurado. Verifica las variables de entorno.' }) };
+  }
+
   try {
     const { email, password } = JSON.parse(event.body);
 
@@ -29,18 +41,13 @@ exports.handler = async (event, context) => {
       return { statusCode: 400, headers, body: JSON.stringify({ error: 'Email y contraseña son requeridos' }) };
     }
 
-    // Sign in with Supabase Auth
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
-      console.error('Auth error:', error);
+      console.error('[login] Auth error:', error);
       return { statusCode: 401, headers, body: JSON.stringify({ error: 'Credenciales incorrectas' }) };
     }
 
-    // Check if user is admin
     const { data: adminUser, error: adminError } = await supabase
       .from('admin_users')
       .select('*')
@@ -67,7 +74,7 @@ exports.handler = async (event, context) => {
       })
     };
   } catch (err) {
-    console.error('Error:', err);
+    console.error('[login] Error:', err);
     return { statusCode: 500, headers, body: JSON.stringify({ error: 'Error interno del servidor' }) };
   }
 };
