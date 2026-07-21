@@ -115,6 +115,38 @@ const Auth = {
 };
 
 document.addEventListener('DOMContentLoaded', async function() {
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const loginError = document.getElementById('loginError');
+
+      if (!email || !password) {
+        loginError.style.display = 'block';
+        loginError.textContent = 'Completa todos los campos.';
+        return;
+      }
+
+      btn.textContent = 'Ingresando...';
+      btn.disabled = true;
+      loginError.style.display = 'none';
+
+      const result = await Auth.login(email, password);
+
+      if (result.success) {
+        window.location.href = '/admin';
+      } else {
+        btn.textContent = 'Iniciar Sesión';
+        btn.disabled = false;
+        loginError.style.display = 'block';
+        loginError.textContent = result.error || 'Credenciales incorrectas.';
+      }
+    });
+  }
+
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', async function(e) {

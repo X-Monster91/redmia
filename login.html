@@ -68,40 +68,7 @@
               Iniciar Sesión
             </button>
           </form>
-          <script>
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-              e.preventDefault();
-              var btn = document.getElementById('loginBtn');
-              var email = document.getElementById('email').value;
-              var password = document.getElementById('password').value;
-              if (!email || !password) {
-                var err = document.getElementById('loginError');
-                err.style.display = 'block';
-                err.textContent = 'Completa todos los campos.';
-                return;
-              }
-              btn.textContent = 'Ingresando...';
-              btn.disabled = true;
-              if (typeof Auth !== 'undefined' && Auth.login) {
-                Auth.login(email, password).then(function(result) {
-                  if (result.success) {
-                    window.location.href = '/admin';
-                  } else {
-                    btn.textContent = 'Iniciar Sesión';
-                    btn.disabled = false;
-                    err.style.display = 'block';
-                    err.textContent = result.error || 'Credenciales incorrectas.';
-                  }
-                });
-              } else {
-                btn.textContent = 'Iniciar Sesión';
-                btn.disabled = false;
-                var err = document.getElementById('loginError');
-                err.style.display = 'block';
-                err.textContent = 'Error de carga. Recarga la pagina.';
-              }
-            });
-          </script>
+          <script>document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();});</script>
 
           <div class="mt-8 text-center">
             <p class="text-sm text-muted">
