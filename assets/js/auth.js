@@ -3,10 +3,10 @@
 const SUPABASE_URL = 'https://nyybxbljwzwfpkrdwvi.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55eWJ4Ymxqd3p3bGZwa3Jkd3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ1NjI5MTMsImV4cCI6MjEwMDEzODkxM30.clodXoRAgeI6zReeqz7tTY6z5vsYayyQazJwpstV7yw';
 
-let supabase = null;
+let supabaseClient = null;
 try {
   if (window.supabase && window.supabase.createClient) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
 } catch (e) {
   console.warn('[REDMIA] Supabase client init failed:', e);
@@ -14,7 +14,7 @@ try {
 
 const Auth = {
   isConfigured() {
-    return supabase !== null && !SUPABASE_URL.includes('YOUR_PROJECT');
+    return supabaseClient !== null && !SUPABASE_URL.includes('YOUR_PROJECT');
   },
 
   async isLoggedIn() {
@@ -22,7 +22,7 @@ const Auth = {
       return localStorage.getItem('redmia_user') !== null;
     }
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await supabaseClient.auth.getSession();
       return session !== null;
     } catch (e) {
       return localStorage.getItem('redmia_user') !== null;
@@ -35,9 +35,9 @@ const Auth = {
       return user ? JSON.parse(user) : null;
     }
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await supabaseClient.auth.getSession();
       if (!session) return null;
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await supabaseClient.auth.getUser();
       return user;
     } catch (e) {
       const user = localStorage.getItem('redmia_user');
@@ -71,10 +71,10 @@ const Auth = {
     }
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
       if (error) throw error;
 
-      const { data: adminUser, error: adminError } = await supabase
+      const { data: adminUser, error: adminError } = await supabaseClient
         .from('admin_users')
         .select('*')
         .eq('user_id', data.user.id)
@@ -101,7 +101,7 @@ const Auth = {
 
   async logout() {
     if (this.isConfigured()) {
-      try { await supabase.auth.signOut(); } catch (e) {}
+      try { await supabaseClient.auth.signOut(); } catch (e) {}
     }
     localStorage.removeItem('redmia_user');
     window.location.href = '/login';
